@@ -1,0 +1,146 @@
+.idf_describe{
+	width: 500px;
+	height: 180px;
+	margin:0 auto;
+}
+
+.idf_describe img{
+	float: left;
+}
+
+#idf_member a{
+	color: #428bca;
+	margin-left: -2px;
+}	
+
+#idf_member a:hover{
+	color: #ff0000;
+	text-decoration: none;
+}
+
+#idf_title a{
+	color:#333;
+	text-decoration: none;
+	margin-left: 120px;
+}
+
+#idf_title a:hover{
+	color:#ff0000;
+}
+
+.member_img{
+	margin-left: 20px;
+	margin-top: 15px;
+}
+
+.click_me{
+	color: #ff0000;
+	font-size: 16px;
+	margin-left: 30px;
+}
+
+.index-time li{
+	list-style: none;
+	display: block;
+	height: 40px;
+	line-height: 30px;
+	font-size: 16px;
+	color: #333;
+	text-decoration: none;
+}
+
+.index-time a:hover{
+	cursor: pointer;
+	text-decoration: none;
+
+}
+
+.index-time .reg{
+	font-size: 14px;
+	float: right;
+	color: #ff0000;
+}
+
+.index-time .wait{
+	font-size: 14px;
+	float: right;
+	color: #666;
+}
+
+.index-time .join{
+	font-size: 14px;
+	float: right;
+	color: #0000FF;
+}
+
+.index-time .anwser{
+	font-size: 14px;
+	float: right;
+	color: #6B8E23;
+}
+
+
+.index-share li{
+	list-style: none;
+	display: block;
+	height: 31px;
+	line-height: 31px;
+	font-size: 16px;
+	color: #333;
+	text-decoration: none;
+}
+
+.index-share a{
+	color:#333;
+	font-weight: 400;
+}
+
+.index-share .author{
+	font-size: 14px;
+	float: right;
+	font-weight: 400;
+	color: #666;
+}
+
+.index-share .author:hover{
+	color: #666;
+}
+
+.index-share a:hover{
+	cursor: pointer;
+	color: #ff0000;
+}
+
+.row a:hover{
+	text-decoration: none;
+}
+
+
+#tagsList {position:relative; width:380px; height:280px;;margin-top: -20px;   }
+#tagsList a {position:absolute; top:0px; left:0px; font-family: Microsoft YaHei; color:#333; font-weight:bold; text-decoration:none; padding: 3px 6px; }
+#tagsList a:hover { color:#428bca; letter-spacing:2px;}
+
+/*-----------------------------*/
+
+#ctf-test{
+	background: #eee;
+padding:10px;
+}
+
+
+.test-text{
+	height: 160px;
+}
+
+.test-submit {
+	text-align: right;
+}
+
+.test-submit a{
+	margin-left: 10px;
+}
+
+.test-submit a:hover{
+	cursor: pointer;
+	text-decoration: none;
+}

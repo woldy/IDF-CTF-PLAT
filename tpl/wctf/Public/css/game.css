@@ -1,0 +1,22 @@
+.anwser input{
+	display: block;	
+	float: right;
+}
+
+.anwser button{
+	margin-left: 10px;
+}
+
+.anwser{
+	height: 80px;
+}
+
+.anwser .tip{
+	float:right;
+	line-height:50px;
+	margin-right:50px;
+}
+
+.article-box{
+	min-height: 1000px;
+}

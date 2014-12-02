@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+	<script src="/statics/js/jquery.js"></script>
+	<script src="/statics/js/md5.js"></script>
+
+
+</head>
+<body>
+<script type="text/javascript">
+var flag=prompt("输入你的flag吧，少年！","");
+var md5="f3373e36c677750779f5d04ff7885b3e";
+var re = /.+_.+_.+/gi;
+var a=0;
+var l4=flag.substr(8, 5);
+if($.md5(l4)==md5.replace(/7/ig,++a).replace(/8/ig,a*2)){
+	var l=flag.substr(0/a, 7);
+	if(l.substr(5,2)=="js" && $.md5(l.substr(0/a,a+3))=="d0154d5048b5a5eb10ef1646400719f1"){
+		r=flag.substr(13);
+		if(r.charCodeAt(a)-25 ==r.charCodeAt(++a)-25 && r.charCodeAt(--a)-25==r.charCodeAt(--a)){
+			var o=String.fromCharCode(79);
+			o=o.toLowerCase()+o.toLowerCase();
+			if(r.substr((++a)*3,6)==o.concat("easy") && re.test(flag)){				
+				a=String(1)+String(flag.length);
+			}
+		}
+	}	
+}
+
+if(flag.substr(4, 1)!=String.fromCharCode(a) || flag.substr(4, 1)=="z"){
+	alert("额，再去想想。。");
+}else{
+	alert("恭喜恭喜！");
+}
+ 
+
+md5=md5.replace(/7/ig,++a).replace(/8/ig,a*2);
+document.write(md5);
+</script>
+wctf{js_jiami_xxooeasy}
+
+f3313e36c611150119f5d04ff1225b3e
+var a=0;
+
+</body>
+</html>

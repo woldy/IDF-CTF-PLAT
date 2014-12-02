@@ -1,0 +1,1 @@
+a:6:{i:0;s:5:"ad_id";i:1;s:7:"ad_name";i:2;s:10:"ad_content";i:3;s:6:"status";s:3:"_pk";s:5:"ad_id";s:5:"_type";a:4:{s:5:"ad_id";s:10:"bigint(20)";s:7:"ad_name";s:12:"varchar(255)";s:10:"ad_content";s:4:"text";s:6:"status";s:6:"int(2)";}}
