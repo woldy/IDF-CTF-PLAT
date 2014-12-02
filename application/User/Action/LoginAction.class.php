@@ -171,6 +171,7 @@ hello;
     						'user_login' => $username,
     						'user_email' => $email,
     						'user_pass' => sp_password($password),
+                            'user_nicename'=>$username,
     						'last_login_ip' => get_client_ip(),
     						'create_time' => time(),
     						'last_login_time' => time(),
