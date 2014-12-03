@@ -81,7 +81,7 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
  					{$test.game_content}
 				</div>  
 				<div class="test-submit">
-					<input type="text" id="anwser" /><b><a id="btnchk" style="font-size:16px" href="javascript:check({$test.object_id})">开始抢答!</a></b><br />
+					<input type="text" id="anwser" /><b><a id="btnchk" style="font-size:16px" href="javascript:check({$test.tid})">开始抢答!</a></b><br />
 					<a href="javascript:ntest()">下一题</a> 
 					<a style="color:#ff0000" href="javascript:alert('下面那个精选习题就是！')">有能耐你整四岁的！</a> 	
 				</div>     	
@@ -125,19 +125,19 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 			  <b>最近注册</b><br />
 			  <p>
  				<foreach name="nuser" item="vo">
- 					<a>{$vo.user_nicename}</a>、
+ 					<a href="index.php?g=user&m=index&a=index&id={$vo.id}">{$vo.user_nicename}</a>、
  				</foreach>
 			  </p>
 			  <b>解题大牛</b><br />
 			  <p>
  				<foreach name="nbuser" item="vo">
- 					<a>{$vo.user_nicename}</a>、
+ 					<a href="index.php?g=user&m=index&a=index&id={$vo.id}">{$vo.user_nicename}</a>、
  				</foreach>
 			  </p>	
 			  <b><font color="red">妹纸！妹纸！</font></b><br />
 			  <p>
 			   	<foreach name="guser" item="vo">
- 					<a>{$vo.user_nicename}</a>、
+ 					<a href="index.php?g=user&m=index&a=index&id={$vo.id}">{$vo.user_nicename}</a>、
  				</foreach>
 			  </p>
 			  <b>当前在线</b><br />

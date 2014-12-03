@@ -104,6 +104,7 @@ class ArticleAction extends HomeBaseAction {
             $score=0;
             if($uid>0){ //如果登录了是要加分的
                 $score=$game['score']*(1-$gl['trycount']/100);
+                if($gl['tiped']==1) $score=$score/2;
                 $u=M("Users")->where("id={$uid}")->save(array('mark' =>array("exp","mark+{$score}")));
                 $gl_s=M("GamesLog")->where("uid={$uid} and gid={$gid}")->save(array('right' =>1,'righttime'=>time()));
             }       

@@ -14,8 +14,8 @@ class IndexAction extends HomeBaseAction {
         $gmodel = M("Games")->cache(true);
 
         $nuser=$nuser_rs->field("id,user_nicename")->order("id desc")->limit(10)->select();//新手
-        $guser=$nuser_rs->field("id,user_nicename")->where("sex=1")->order("id desc")->limit(10)->select();//girls
-        $nbuser=$nuser_rs->field("id,user_nicename")->order("score desc")->limit(10)->select();//高手
+        $guser=$nuser_rs->field("id,user_nicename")->where("sex=2")->order("id desc")->limit(10)->select();//girls
+        $nbuser=$nuser_rs->field("id,user_nicename")->order("mark desc")->limit(10)->select();//高手
         $dynamic=$pterms //CTF动态
         ->alias("a")
         ->field("tid,post_title,link_class,post_url")
@@ -68,7 +68,7 @@ class IndexAction extends HomeBaseAction {
 
         $test=$gterms 
             ->alias("a")
-            ->field("object_id,game_content")
+            ->field("tid,game_content")
             ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
             ->where("a.object_id={$tid}")
             ->limit(1)
@@ -95,7 +95,7 @@ class IndexAction extends HomeBaseAction {
 
         $test=$gterms 
             ->alias("a")
-            ->field("object_id,game_content")
+            ->field("tid,game_content")
             ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
             ->where("a.object_id={$tid}")
             ->limit(1)
@@ -105,7 +105,7 @@ class IndexAction extends HomeBaseAction {
         if($test!=false){
             $result = array(
                 'errcode'=>0,
-                'id' =>$test['object_id'], 
+                'id' =>$test['tid'], 
                 'game_content'=>$test['game_content']
             );
         }

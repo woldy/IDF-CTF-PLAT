@@ -43,10 +43,17 @@
 					               				</div>
 					               			</div>
 					               			<div class="control-group">
+					               				<label class="control-label" for="input-user_score">积分</label>
+					               				<div class="controls">
+					               					{$mark}
+					               				</div>
+					               			</div>
+
+					               			<div class="control-group">
 					               				<label class="control-label" for="input-sex">性别</label>
 					               				<div class="controls">
 					               				<php>
-					               				$sexs=array("0"=>"保密","1"=>"程序猿","2"=>"程序媛");
+					               				$sexs=array("0"=>"中性","1"=>"屌丝男","2"=>"萌妹纸");
 					               				
 					               				</php>
 					               					{$sexs[$sex]}

@@ -139,9 +139,9 @@
  					<?php echo ($test["game_content"]); ?>
 				</div>  
 				<div class="test-submit">
-					<input type="text" /><b><a style="font-size:16px" href="javascript:alert('尼玛，老子功能还没开发完呢咋就先把网站给推出来了，这不坑我么。。各位看看文章就好，不要乱点，没功能，更不要乱测试，我不会告诉大家我还没有做任何安全措施的。。 = =！')">开始抢答!</a></b><br />
-					<a>下一题</a> 
-					<a style="color:#ff0000">有能耐你整四岁的！</a> 	
+					<input type="text" id="anwser" /><b><a id="btnchk" style="font-size:16px" href="javascript:check(<?php echo ($test["tid"]); ?>)">开始抢答!</a></b><br />
+					<a href="javascript:ntest()">下一题</a> 
+					<a style="color:#ff0000" href="javascript:alert('下面那个精选习题就是！')">有能耐你整四岁的！</a> 	
 				</div>     	
              </div>
 		</div>
@@ -176,15 +176,15 @@
 			  <h2 class="font-large nospace"><i class="fa fa-group"></i> 会员排行</h2>
 			  <b>最近注册</b><br />
 			  <p>
- 				<?php if(is_array($nuser)): foreach($nuser as $key=>$vo): ?><a><?php echo ($vo["user_nicename"]); ?></a>、<?php endforeach; endif; ?>
+ 				<?php if(is_array($nuser)): foreach($nuser as $key=>$vo): ?><a href="index.php?g=user&m=index&a=index&id=<?php echo ($vo["id"]); ?>"><?php echo ($vo["user_nicename"]); ?></a>、<?php endforeach; endif; ?>
 			  </p>
 			  <b>解题大牛</b><br />
 			  <p>
- 				<?php if(is_array($nbuser)): foreach($nbuser as $key=>$vo): ?><a><?php echo ($vo["user_nicename"]); ?></a>、<?php endforeach; endif; ?>
+ 				<?php if(is_array($nbuser)): foreach($nbuser as $key=>$vo): ?><a href="index.php?g=user&m=index&a=index&id=<?php echo ($vo["id"]); ?>"><?php echo ($vo["user_nicename"]); ?></a>、<?php endforeach; endif; ?>
 			  </p>	
 			  <b><font color="red">妹纸！妹纸！</font></b><br />
 			  <p>
-			   	<?php if(is_array($guser)): foreach($guser as $key=>$vo): ?><a><?php echo ($vo["user_nicename"]); ?></a>、<?php endforeach; endif; ?>
+			   	<?php if(is_array($guser)): foreach($guser as $key=>$vo): ?><a href="index.php?g=user&m=index&a=index&id=<?php echo ($vo["id"]); ?>"><?php echo ($vo["user_nicename"]); ?></a>、<?php endforeach; endif; ?>
 			  </p>
 			  <b>当前在线</b><br />
 			  	<p>不好意思这个功能的代码不会写。。</p>
@@ -331,6 +331,7 @@ var GV = {
 <script src="/tpl/wctf/Public/js/slippry.min.js"></script>
 <script src="/tpl/wctf/Public/js/index.js"></script>
 <script src="/tpl/wctf/Public/js/tags.js"></script>
+<script src="/tpl/wctf/Public/js/game.js"></script>
 <script>
 $(function() {
 	var demo1 = $("#homeslider").slippry({
