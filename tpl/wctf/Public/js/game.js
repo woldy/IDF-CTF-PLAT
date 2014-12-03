@@ -10,9 +10,12 @@ function check(id){
       dataType: 'json',
       success: function(data) {
            if (data.errcode == "0") {
-               //alert('ok');
+               alert(data.str);
+               location.reload(); 
            }
-          alert(data.str);
+           else{
+              alert(data.str);
+           }
       }
   });
 }

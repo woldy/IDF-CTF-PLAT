@@ -56,7 +56,6 @@ class IndexAction extends HomeBaseAction {
             ->field("object_id")
             ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
             ->where("a.term_id=16 and a.status=1")
-            ->limit(8)
             ->order("a.listorder ASC,b.game_modified DESC")->select();
             $test_ids=array();
             for($i=0;$i<count($test);$i++){
@@ -67,9 +66,14 @@ class IndexAction extends HomeBaseAction {
         $test_ids=$_SESSION['test_ids'];
         $tid=$test_ids[array_rand($test_ids)];
 
-        $test=$gmodel->field("id,game_title,game_content")->where("id=".$tid)->select();
+        $test=$gterms 
+            ->alias("a")
+            ->field("object_id,game_content")
+            ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
+            ->where("a.object_id={$tid}")
+            ->limit(1)
+            ->select();
         $test=$test[0];
-
         
         $this->assign("dynamic",$dynamic);
         $this->assign("test",$test);
@@ -81,6 +85,37 @@ class IndexAction extends HomeBaseAction {
 		$this->assign("guser",$guser);
 		$this->assign("nbuser",$nbuser);
     	$this->display(":index");
+    }
+
+
+    public function ntest(){
+        $gterms = M("GtermRelationships")->cache(true);
+        $test_ids=$_SESSION['test_ids'];
+        $tid=$test_ids[array_rand($test_ids)];
+
+        $test=$gterms 
+            ->alias("a")
+            ->field("object_id,game_content")
+            ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
+            ->where("a.object_id={$tid}")
+            ->limit(1)
+            ->select();
+        $test=$test[0];
+
+        if($test!=false){
+            $result = array(
+                'errcode'=>0,
+                'id' =>$test['object_id'], 
+                'game_content'=>$test['game_content']
+            );
+        }
+        else{
+            $result = array(
+                'errcode'=>1,
+                'str' =>$test['object_id']
+            );
+        }
+        echo json_encode($result);
     }
     
 }

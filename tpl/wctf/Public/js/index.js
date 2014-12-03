@@ -19,6 +19,46 @@ function get_info(id){
   });
 }
 
+function check(id){
+  var aj = $.ajax({
+      url:'index.php?g=Game&m=article&a=check',   
+      data: {
+         id:id,
+         anwser:$("#anwser").val()
+      },
+      type: 'get',
+      cache: false,
+      dataType: 'json',
+      success: function(data) {
+           if (data.errcode == "0") {
+               alert("恭喜你答对了！是不是觉得有点简单？登陆后尝试做一些精品习题吧！");
+           }
+           else{
+              alert(data.str);
+           }
+      }
+  });
+}
+
+function ntest(){
+  var aj = $.ajax({
+      url:'index.php?g=Portal&m=index&a=ntest',   
+      data: {
+      },
+      type: 'get',
+      cache: false,
+      dataType: 'json',
+      success: function(data) {
+           if (data.errcode == "0") {
+               $(".test-text").html(data.game_content);
+               $("#btnchk").attr("href","javascript:check("+data.id+")");
+           }
+           else{
+              alert(data.str);
+           }
+      }
+  });
+}
 
 
 

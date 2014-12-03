@@ -63,28 +63,68 @@ class ArticleAction extends HomeBaseAction {
 
     public function check(){
         $gid=intval($_GET['id']);
+        $uid=get_current_userid();
         $anwser=$_GET['anwser'];
         $game=sp_sql_game($gid,'');
-        $uid=get_current_userid();
-   
-        if($anwser==$game['anwser']){
-            $m_gl= M("GamesLog");
-            $gl=M("GamesLog")->where("uid={$uid} and gid={$gid}")->save(array('right' =>1,'righttime'=>time()));
+        $termid=$game['term_id'];//16为牛刀小试
+
+
+        if($uid>0){//用户登录过，检查答题记录
+            $gl=get_games_log($gid);//当前用户当前游戏状态
+            if($gl['right']==1){
+                $result=array(
+                    'errcode' =>3, 
+                    'str'=>'别闹，我知道你已经答过了。。'
+                );
+                echo json_encode($result);
+                exit;
+            }
+            if($gl['trycount']>100){
+                $result=array(
+                    'errcode' =>4, 
+                    'str'=>'哥你尝试的次数太多了你已经被禁答此题了谢谢。。'
+                );
+                echo json_encode($result);
+                exit;
+            }
+            $gl_s=M("GamesLog")->where("uid={$uid} and gid={$gid}")->save(array('trycount' =>array("exp","trycount+1")));//尝试次数+1
+        }
+
+
+        if($uid==0 && $termid!=16){  //如果没有登录又不是牛刀小试，滚去登录！
+            $result=array(
+                'errcode' =>1, 
+                'str'=>"首先，你需要登录。。"
+             );
+            echo json_encode($result);
+            exit;
+        }
+
+        if($anwser==$game['anwser']){  
+            $score=0;
+            if($uid>0){ //如果登录了是要加分的
+                $score=$game['score']*(1-$gl['trycount']/100);
+                $u=M("Users")->where("id={$uid}")->save(array('mark' =>array("exp","mark+{$score}")));
+                $gl_s=M("GamesLog")->where("uid={$uid} and gid={$gid}")->save(array('right' =>1,'righttime'=>time()));
+            }       
             $result=array(
                 'errcode' =>0, 
-                'str'=>'u r right'
+                'str'=>"恭喜你答对了，获得{$score}分！"
             );
+            if($uid==0){
+                $result['str']="恭喜你答对了！";
+            }
         }
         else{
             $result=array(
                 'errcode' =>1, 
-                'str'=>'u r wrong'
+                'str'=>'额。。好像不太对。。'
             );
         }
         if($anwser==""){
             $result=array(
                 'errcode' =>2, 
-                'str'=>'plz enter ur anwser!'
+                'str'=>'嗯，首先，你需要输入一个答案。。'
             );
         }
         echo json_encode($result);
@@ -93,7 +133,7 @@ class ArticleAction extends HomeBaseAction {
     public function tip(){
         $gid=intval($_GET['id']);
         $uid=get_current_userid();
-        if($uid==123450){
+        if($uid==0){
             $result=array(
                 'errcode' =>1, 
                 'str'=>"首先，你需要登录。。"
@@ -108,6 +148,12 @@ class ArticleAction extends HomeBaseAction {
                 'errcode' =>0, 
                 'str'=>$game['tip']
         );
+        if($game['score']<2){
+             $result=array(
+                'errcode' =>2, 
+                'str'=>"这么简单的题你也好意思要提示？"
+             );  
+        }
         echo json_encode($result);
     }
 }

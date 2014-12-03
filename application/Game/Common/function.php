@@ -95,7 +95,14 @@ function get_games_log($gid,$uid=0){
 	$uid=$uid==0?get_current_userid():$uid;	
 	$m_gl= M("GamesLog");
 	$gl=$m_gl->where("uid={$uid} and gid={$gid}")->select();
-	if($gl==false){//没有记录
+	if($uid==0){
+		$res=array(
+			'right' => 0,
+			'tiped' =>0,
+			'trycount'=>0
+		);
+	}
+	else if($gl==false){//没有记录
 		$m_gl->add(
 			array(
 				'uid'=>$uid,
@@ -104,7 +111,8 @@ function get_games_log($gid,$uid=0){
 		);
 		$res=array(
 			'right' => 0,
-			'tiped' =>0 
+			'tiped' =>0,
+			'trycount'=>0
 		);
 	}
 	else{
@@ -130,7 +138,7 @@ function sp_sql_game($tid,$tag){
 	$field = !empty($tag['field']) ? $tag['field'] : '*';
 
 
-	//根据参数生成查询条件
+	//sc
 	$where['status'] = array('eq',1);
 	$where['tid'] = array('eq',$tid);
 
