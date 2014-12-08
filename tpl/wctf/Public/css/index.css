@@ -149,3 +149,32 @@
 	cursor: pointer;
 	text-decoration: none;
 }
+
+/**/
+.ctf-info{
+	margin-top: 30px;
+}
+.about-ctf{
+	display: none;
+}
+
+.expand{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #eee;
+	margin: 30px 0px;
+	background: #fafafa;
+}
+
+.expand a{
+ 	color: #444;
+ 	font-size: 14px;
+ 	text-decoration: none;
+
+}
+
+.expand:hover{
+	background: #f7f7f7;
+	cursor: pointer;
+}

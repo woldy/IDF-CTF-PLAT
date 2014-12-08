@@ -149,33 +149,35 @@ $home_slides=empty($home_slides)?$default_home_slides:$home_slides;
 		<h1 class="text-center" id="idf_title">
 			关于CTF
 		</h1>
-		<b>什么是CTF:</b><br />
-		<p>
+		<div class="expand">
+			<a id="expand-arrow" class="fa fa-angle-double-down">&nbsp;</a>
+		</div>
+		<div class="about-ctf">
+			<b>什么是CTF:</b><br />
+			<p>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTF全称Capture The Flag，即夺旗比赛，衍生自古代军事战争模式，两队人马前往对方基地夺旗，每队人马须在保护好己方旗帜的情况下将对方旗帜带回基地。在如今的计算机领域中，CTF已经成为安(hei)全(ke)竞赛的一种重要比赛形式，参赛选手往往需要组队参加，通过团队之间的相互合作使用逆向、解密、取证分析、渗透利用等技术最终取得flag。
-		</p>
- 		<b>CTF的比赛形式:</b><br />
- 		<p>
+			</p>
+ 			<b>CTF的比赛形式:</b><br />
+ 			<p>
  			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTF夺旗赛通常有两种形式，解题模式（Jeopardy）和攻防模式（Attack-Defense）。在解题模式的比赛中，主办方会提供一系列不同类型的赛题，比如上线一个有漏洞的服务、提供一段网络流量、给出一个加密后的数据或经过隐写后的文件等，他们将 flag 隐藏在这些赛题中，选手们通过比拼解题来一决高下；在攻防模式比赛中，主办方会事先编写一系列有漏洞的服务，并将它们安装在每个参赛队伍都相同的环境中，参赛队伍一方面需要修补自己服务的漏洞，同时也需要去攻击对手们的服务、拿到对手环境中的 flag 来得分，攻防模式的竞赛往往比解题模式的竞赛更接近真实环境，比赛过程也更加激烈。
- 		</p>
- 		<b>CTF的常见题型:</b><br />
- 		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般在CTF比赛中，会涉及MISC，PPC，CRYPTO，PWN，REVERSE，WEB，STEGA这几种题目。<br />
- 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MISC(miscellaneous)类型的题目比较杂乱，可能要分析数据，可能需要百度一下，还可能需要脑筋急转弯；PPC(Professionally ProgramCoder)会考察一些编程类的题目；是CRYPTO是密码学，考察各种加解密技术，当然这和软件加密解密的REVERSE技术是两码事。PWN在黑客俚语中代表着，攻破，取得权限，多为溢出类题目。STEGA(Steganography)会将flag隐藏到各种有码无码高清不高清的图片和音像制品中；WEB题目不用多说，大家都懂的。。
- 		</p>
- 		<b>国内外有哪些著名的CTF比赛:</b><br />
- 		<p>
- 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>国内：</b>当然是最近炒得火热的<a href="http://www.xctf.org.cn">XCTF</a>全国联赛了！<br />
- 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>国外：</b><br />
- 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>PHDays CTF</a>全称Positive Hack Days CTF，是一个国际性信息安全竞赛，竞赛规则基于CTF，但更贴近网络实战环境。<br />
- 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>iCTF</a>国际黑客竞赛是一个面向全球信息安全专业研究学生团队的大型在线黑客竞赛。清华blue-lotus实验室在上届（2011）竞赛中排名第23位（共87个参赛团队）。<br />
- 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>DEFCON</a>是世界上最大、最古老的地下黑客大会，和Black Hat的创始人相同，但相比于Black Hat要随意得多。DEFCON以小规模讨论及技术切磋为主，会上最流行的活动是若干人组成一个局域网，然后互打攻防战（CTF），参赛者的目标是进攻对手的网络，但同时保护好自己的地盘。由于想参赛的队伍都得经过会前淘汰赛，因此参赛者都有相当高的实力。
- 		</p>
-		<hr />
+ 			</p>
+ 			<b>CTF的常见题型:</b><br />
+ 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一般在CTF比赛中，会涉及MISC，PPC，CRYPTO，PWN，REVERSE，WEB，STEGA这几种题目。	<br />
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MISC(miscellaneous)类型的题目比较杂乱，可能要分析数据，可能需要百度一下，还可能需要脑筋急转弯；PPC(Professionally ProgramCoder)会考察一些编程类的题目；是CRYPTO是密码学，考察各种加解密技术，当然这和软件加密解密的REVERSE技术是两码事。PWN在黑客俚语中代表着，攻破，取得权限，多为溢出类题目。STEGA(Steganography)会将flag隐藏到各种有码无码高清不高清的图片和音像制品中；WEB题目不用多说，大家都懂的。。
+ 			</p>
+ 			<b>国内外有哪些著名的CTF比赛:</b><br />
+ 			<p>
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>国内：</b>当然是最近炒得火热的<a href="http://www.xctf.org.cn">XCTF</a>全国联赛了！<br />
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>国外：</b><br />
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>PHDays CTF</a>全称Positive Hack Days CTF，是一个国际性信息安全竞赛，竞赛规则基于CTF，但更贴近网络实战环境。<br />
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>iCTF</a>国际黑客竞赛是一个面向全球信息安全专业研究学生团队的大型在线黑客竞赛。清华blue-lotus实验室在上届（2011）竞赛中排名第23位（共87个参赛团队）。<br />
+ 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a>DEFCON</a>是世界上最大、最古老的地下黑客大会，和Black Hat的创始人相同，但相比于Black Hat要随意得多。DEFCON以小规模讨论及技术切磋为主，会上最流行的活动是若干人组成一个局域网，然后互打攻防战（CTF），参赛者的目标是进攻对手的网络，但同时保护好自己的地盘。由于想参赛的队伍都得经过会前淘汰赛，因此参赛者都有相当高的实力。
+ 			</p>
+			<hr />
+		</div>
 	</div>
 	<div>
-		<h1 class="text-center" id="idf_title">
-			<a mid="0" href="http://idf.cn"  class="idf">IDF实验室</a>
-			<span class="click_me">↙点我！！！</span>
-		</h1>
+ 
 		<h3 class="text-center" id="idf_member">
 			<a mid="1" href="#" class="idf">寒</a>
 			<a mid="2" href="#" class="idf">近</a>

@@ -75,4 +75,17 @@ $(document).ready(function(){
     	}
 	);
 
+    $(".expand").click(//成员简介
+      function(){
+        if($(".about-ctf").is(":hidden")){
+            $("#expand-arrow").attr("class","fa fa-angle-double-up");
+            $(".about-ctf").show();
+        }
+        else{
+          $("#expand-arrow").attr("class","fa fa-angle-double-down");
+          $(".about-ctf").hide();
+        }
+      }
+  );
+
 });
