@@ -79,6 +79,10 @@
 	color: #6B8E23;
 }
 
+.span4{
+	word-break: break-all;
+}
+
 
 .index-share li{
 	list-style: none;
@@ -124,7 +128,8 @@
 
 #ctf-test{
 	background: #eee;
-padding:10px;
+	padding:10px;
+	word-break: break-word;
 }
 
 

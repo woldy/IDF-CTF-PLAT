@@ -20,7 +20,7 @@ class IndexAction extends HomeBaseAction {
         ->alias("a")
         ->field("tid,post_title,link_class,post_url")
         ->join(C ( 'DB_PREFIX' )."posts b ON a.object_id = b.id")
-        ->where("a.term_id = 6 and a.status=1")
+        ->where("a.term_id = 6 and b.post_status=1 and a.status=1")
         ->limit(6)
         ->order("a.listorder ASC,b.post_modified DESC")->select();
 
@@ -29,7 +29,7 @@ class IndexAction extends HomeBaseAction {
         ->alias("a")
         ->field("post_title,post_realauthor,post_url,tid")
         ->join(C ( 'DB_PREFIX' )."posts b ON a.object_id = b.id")
-        ->where("a.term_id = 10 and a.status=1")
+        ->where("a.term_id = 10 and b.post_status=1 and a.status=1")
         ->limit(8)
         ->order("a.listorder ASC,b.post_modified DESC")->select();
 
@@ -38,7 +38,7 @@ class IndexAction extends HomeBaseAction {
         ->alias("a")
         ->field("post_title,tid,post_date")
         ->join(C ( 'DB_PREFIX' )."posts b ON a.object_id = b.id")
-        ->where("a.term_id = 9 and a.status=1")
+        ->where("a.term_id = 9 and b.post_status=1 and a.status=1")
         ->limit(8)
         ->order("a.listorder ASC,b.post_modified DESC")->select();
 
@@ -46,7 +46,7 @@ class IndexAction extends HomeBaseAction {
         ->alias("a")
         ->field("tid,game_title")
         ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
-        ->where("a.term_id !=16 and a.status=1")
+        ->where("a.term_id !=16 and b.game_status=1 and a.status=1")
         ->limit(20)
         ->order("a.listorder ASC,b.game_modified DESC")->select();
 
@@ -55,7 +55,7 @@ class IndexAction extends HomeBaseAction {
             ->alias("a")
             ->field("object_id")
             ->join(C ( 'DB_PREFIX' )."games b ON a.object_id = b.id")
-            ->where("a.term_id=16 and a.status=1")
+            ->where("a.term_id=16 and b.game_status=1 and a.status=1")
             ->order("a.listorder ASC,b.game_modified DESC")->select();
             $test_ids=array();
             for($i=0;$i<count($test);$i++){

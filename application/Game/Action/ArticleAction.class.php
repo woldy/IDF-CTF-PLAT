@@ -113,7 +113,7 @@ class ArticleAction extends HomeBaseAction {
                 'str'=>"恭喜你答对了，获得{$score}分！"
             );
             if($uid==0){
-                $result['str']="恭喜你答对了！";
+                $result['str']="恭喜你答对了！你这么牛，为啥不登录呢。。";
             }
         }
         else{
@@ -143,17 +143,19 @@ class ArticleAction extends HomeBaseAction {
             exit;
         }
         $game=sp_sql_game($gid,'');
-        $m_gl= M("GamesLog");
-        $gl=M("GamesLog")->where("uid={$uid} and gid={$gid}")->save(array('tiped' =>1));
-        $result=array(
-                'errcode' =>0, 
-                'str'=>$game['tip']
-        );
         if($game['score']<2){
              $result=array(
                 'errcode' =>2, 
                 'str'=>"这么简单的题你也好意思要提示？"
              );  
+        }
+        else{
+            $m_gl= M("GamesLog");
+            $gl=M("GamesLog")->where("uid={$uid} and gid={$gid}")->save(array('tiped' =>1));
+            $result=array(
+                'errcode' =>0, 
+                'str'=>$game['tip']
+            );
         }
         echo json_encode($result);
     }

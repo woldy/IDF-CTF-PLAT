@@ -20,3 +20,7 @@
 .article-box{
 	min-height: 1000px;
 }
+
+#article_content{
+        word-break: break-word;
+}
